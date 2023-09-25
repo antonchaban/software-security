@@ -16,13 +16,18 @@ const SESSION_KEY = 'Authorization';
 function verifyToken(token) {
     if (!token) return null;
 
-    const data = jwt.verify(token, process.env.JWT_SECRET);
-    if (!data) return null;
+    try {
+        const data = jwt.verify(token, process.env.JWT_SECRET);
+        const user = users.find(user => user.login == data.login);
 
-    const user = users.find(user => user.login == data.login);
-    if (!user) return null;
-    return user.username;
+        if (!user) return null;
+        return user.username;
+    } catch (error) {
+        console.error("JWT Verification Error:", error.message);
+        return null;
+    }
 }
+
 
 app.use((req, res, next) => {
     const sessionId = req.get(SESSION_KEY);
