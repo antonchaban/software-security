@@ -28,7 +28,6 @@ function verifyToken(token) {
     }
 }
 
-
 app.use((req, res, next) => {
     const sessionId = req.get(SESSION_KEY);
 

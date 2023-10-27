@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "eae8cfe4-6fb6-4580-9652-e7b86f9a2fa9",
+		"name": "SoftwareSecurityLab2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21535259"
+	},
+	"item": [
+		{
+			"name": "Task1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "audience",
+							"value": "https://kpi.eu.auth0.com/api/v2/",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "JIvCO5c2IBHlAe2patn6l6q5H35qxti0",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "ZRF8Op0tWM36p1_hxXTU-B0K_Gq_-eAVtlrQpY24CasYiDmcXBhNS6IJMNcz1EgB",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://kpi.eu.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"kpi",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjVCZTlBZFhrMERaUjhmR1dZYjdkViJ9.eyJpc3MiOiJodHRwczovL2twaS5ldS5hdXRoMC5jb20vIiwic3ViIjoiSkl2Q081YzJJQkhsQWUycGF0bjZsNnE1SDM1cXh0aTBAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8va3BpLmV1LmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNjk4NDA0ODIwLCJleHAiOjE2OTg0OTEyMjAsImF6cCI6IkpJdkNPNWMySUJIbEFlMnBhdG42bDZxNUgzNXF4dGkwIiwic2NvcGUiOiJyZWFkOnVzZXJzIGNyZWF0ZTp1c2VycyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.pa76_KVTcNIol8xSDxAVAovVv7pdNWvvZHPeL-s8NO-wBQvwPYLnZaimTeyNd8rAYVChTde1FQwxUMDqX45EhHxgNx1isouoXgvVO3nbz40TG6GknPBHRqGJvIM0oq2McbuKtQ_FFHtKtqFiTf5w-Um9YuQFHv2cgX0_wJVFBkbC3zhe_wd0SvF7YtQIO9H0T7T43jhL95i-lYtQWIEWcIbDgA5VtM_xSfppc1db4OPr5lGetC__70ck4UWiF_a974IyUup1v-hX7RuW2F_NB2tWGK7DH5lLz8aFxMT_OGvnGcG7fHODNdiSn9kMkATx3Hw2H1NMw5LVFFJqSPGwKA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"a.chaban1@gmail.com\",\n  \"password\": \"qwerTy4ch\",\n  \"connection\": \"Username-Password-Authentication\"\n}"
+				},
+				"url": {
+					"raw": "https://kpi.eu.auth0.com/api/v2/users",
+					"protocol": "https",
+					"host": [
+						"kpi",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task3_2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNxdkhubXVqdzZsRk1yVHBmWmdzRyJ9.eyJpc3MiOiJodHRwczovL2Rldi1jaGFiYW4tZmljdC1pdDAxLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJsWDdQQ1hkQ3lRMjB4eDBYblQ1U0ZuUWZuYTBhSkFQNEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9kZXYtY2hhYmFuLWZpY3QtaXQwMS5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTY5ODQwNjI2MSwiZXhwIjoxNjk4NDkyNjYxLCJhenAiOiJsWDdQQ1hkQ3lRMjB4eDBYblQ1U0ZuUWZuYTBhSkFQNCIsInNjb3BlIjoicmVhZDp1c2VycyBjcmVhdGU6dXNlcnMiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.giIO2UKbyrlwTQo2WEGwLfQV8QxZGvO8GGH3fg7sckpiDcupYyyllxc-7bSiBWEr8uTyYJlZ-SoQDkejXCVK2aPCiySk5GLsWdxH-8r3U-Pybmi86kDY6tXt1Eoh7EVKmF8SEJh5mDT3aU8AtrMpg19SQg59LEmAinbsgV7_yA5HwCqJY5WNcHyMaAgk5ni-K7zpKJEWxfX9vgQ8LtRZUadYU1QB-Qh_kybqcNS_dqhMm-95CukUDnKODMCJYbri92ondKSuju5bWapqqqhM37bU-u8gFdMIOunAd_88ZTUjDN22dpYfUidU8YVfz94ZzOgekbuEbKyRa3jT0Iudbg"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"a.chaban1@gmail.com\",\n  \"password\": \"qwerTy4ch\",\n  \"connection\": \"Username-Password-Authentication\"\n}"
+				},
+				"url": {
+					"raw": "https://dev-chaban-fict-it01.eu.auth0.com/api/v2/users",
+					"protocol": "https",
+					"host": [
+						"dev-chaban-fict-it01",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task3_1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"client_id\":\"lX7PCXdCyQ20xx0XnT5SFnQfna0aJAP4\",\"client_secret\":\"hfLOAKOze9yX1gRJ7EHBRMxBfoufFMKRL8LdBDLUmjbNj-zR5Y6qFqkAxg7RqQbI\",\"audience\":\"https://dev-chaban-fict-it01.eu.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
+				},
+				"url": {
+					"raw": "https://dev-chaban-fict-it01.eu.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"dev-chaban-fict-it01",
+						"eu",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
