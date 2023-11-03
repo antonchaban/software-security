@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>signup</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 <main id="main-holder">
-    <h1 id="register-header">Register</h1>
+    <h1 id="signup-header">signup</h1>
 
-    <div id="register-error-msg-holder">
-        <p id="register-error-msg">
+    <div id="signup-error-msg-holder">
+        <p id="signup-error-msg">
             Please check the data<span id="error-msg-second-line"
         >maybe this email is used</span
         >
         </p>
     </div>
 
-    <form id="register-form" action="/api/register" method="post">
+    <form id="signup-form" action="/api/signup" method="post">
         <input
                 type="text"
                 required
                 name="email"
                 id="email-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Email"
         />
         <input
@@ -33,7 +33,7 @@
                 required
                 name="givenname"
                 id="givenname-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Given Name"
         />
         <input
@@ -41,7 +41,7 @@
                 required
                 name="familyname"
                 id="familyname-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Family Name"
         />
         <input
@@ -49,7 +49,7 @@
                 required
                 name="name"
                 id="name-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Name"
         />
         <input
@@ -57,7 +57,7 @@
                 required
                 name="nickname"
                 id="nickname-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Nickname"
         />
         <input
@@ -65,13 +65,13 @@
                 required
                 name="password"
                 id="password-field"
-                class="register-form-field"
+                class="signup-form-field"
                 placeholder="Password"
         />
         <input
                 type="submit"
                 value="Create an account"
-                id="register-form-submit"
+                id="signup-form-submit"
         />
     </form>
 </main>
@@ -107,7 +107,7 @@
         box-shadow: 0px 0px 5px 2px black;
     }
 
-    #register-error-msg-holder {
+    #signup-error-msg-holder {
         width: 100%;
         height: 100%;
         display: grid;
@@ -115,7 +115,7 @@
         align-items: center;
     }
 
-    #register-error-msg {
+    #signup-error-msg {
         width: 23%;
         text-align: center;
         margin: 0;
@@ -132,18 +132,18 @@
         display: block;
     }
 
-    #register-form {
+    #signup-form {
         align-self: flex-start;
         display: grid;
         justify-items: center;
         align-items: center;
     }
 
-    .register-form-field::placeholder {
+    .signup-form-field::placeholder {
         color: #3a3a3a;
     }
 
-    .register-form-field {
+    .signup-form-field {
         border: none;
         border-bottom: 1px solid #3a3a3a;
         margin-bottom: 10px;
@@ -152,7 +152,7 @@
         padding: 0px 0px 5px 5px;
     }
 
-    #register-form-submit {
+    #signup-form-submit {
         width: 100%;
         padding: 7px;
         border: none;
@@ -172,22 +172,22 @@
         window.location.href = '/';
     }
 
-    const registerForm = document.getElementById('register-form');
-    const registerButton = document.getElementById('register-form-submit');
-    const registerErrorMsg = document.getElementById('register-error-msg');
+    const signupForm = document.getElementById('signup-form');
+    const signupButton = document.getElementById('signup-form-submit');
+    const signupErrorMsg = document.getElementById('signup-error-msg');
 
-    registerButton.addEventListener('click', (e) => {
+    signupButton.addEventListener('click', (e) => {
         e.preventDefault();
-        const email = registerForm.email.value;
-        const givenname = registerForm.givenname.value;
-        const familyname = registerForm.familyname.value;
-        const nickname = registerForm.nickname.value;
-        const name = registerForm.name.value;
-        const password = registerForm.password.value;
+        const email = signupForm.email.value;
+        const givenname = signupForm.givenname.value;
+        const familyname = signupForm.familyname.value;
+        const nickname = signupForm.nickname.value;
+        const name = signupForm.name.value;
+        const password = signupForm.password.value;
 
         axios({
             method: 'post',
-            url: '/api/register',
+            url: '/api/signup',
             data: {
                 email,
                 givenname,
@@ -204,8 +204,8 @@
                 }
             })
             .catch((response) => {
-                registerErrorMsg.style.opacity = 1;
-                registerErrorMsg.innerHTML += response.request.status;
+                signupErrorMsg.style.opacity = 1;
+                signupErrorMsg.innerHTML += response.request.status;
             });
     });
 </script>

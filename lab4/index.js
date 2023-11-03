@@ -7,7 +7,7 @@ require('dotenv-expand').expand(require('dotenv').config());
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 const SESSION_KEY = 'Authorization';
 
@@ -116,14 +116,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get('/register', (req, res) => {
+app.get('/signup', (req, res) => {
     if (req.username) {
         return res.json({
             username: req.username,
             logout: 'http://localhost:3000/logout',
         });
     }
-    res.sendFile(path.join(__dirname + '/register.html'));
+    res.sendFile(path.join(__dirname + '/signup.html'));
 });
 
 app.get('/logout', (req, res) => {
@@ -131,12 +131,12 @@ app.get('/logout', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-    const { login, password } = req.body;
+    const {login, password} = req.body;
 
     const getTokensRequest = {
         method: 'POST',
         url: `https://${process.env.DOMAIN}/oauth/token`,
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        headers: {'content-type': 'application/x-www-form-urlencoded'},
         form: {
             audience: process.env.AUDIENCE,
             grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
@@ -170,7 +170,7 @@ app.post('/api/login', (req, res) => {
             const expiresDate = new Date();
             expiresDate.setSeconds(now.getSeconds() + info.expires_in);
 
-            res.json({ token: info.access_token, expiresDate: expiresDate });
+            res.json({token: info.access_token, expiresDate: expiresDate});
             return;
         }
 
@@ -178,7 +178,7 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-app.post('/api/register', (req, res) => {
+app.post('/api/signup', (req, res) => {
     console.log(req.body);
     createUser(
         res,
@@ -195,7 +195,7 @@ app.post('/api/register', (req, res) => {
 const getTokenRequest = {
     method: 'POST',
     url: `https://${process.env.DOMAIN}/oauth/token`,
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    headers: {'content-type': 'application/x-www-form-urlencoded'},
     form: {
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
