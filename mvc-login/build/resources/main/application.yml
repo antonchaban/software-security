@@ -1,0 +1,14 @@
+server:
+  port: 3000
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.auth0.example: TRACE
+
+okta:
+  oauth2:
+    issuer: https://dev-chaban-fict-it01.eu.auth0.com/
+    client-id: 9iaf6rEgyaGUJMGLEjF1nyy3tNLsGpH7
+    client-secret: pLAFca9dm8W4d_6ewNExEPTDiK_jsUSPQDtMDLyc8vuc1QMc5ahydP4QUBmqjhH5
