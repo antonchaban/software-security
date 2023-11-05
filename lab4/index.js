@@ -140,7 +140,6 @@ app.post('/api/login', (req, res) => {
         form: {
             audience: process.env.AUDIENCE,
             grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
-            // grant_type: 'password',
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.CLIENT_SECRET,
             username: login,
