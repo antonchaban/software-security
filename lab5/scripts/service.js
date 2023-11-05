@@ -39,7 +39,7 @@ const login = (req, res) => {
     );
 };
 
-const register = (req, res) => {
+const signup = (req, res) => {
     request(
         {
             method: 'POST',
@@ -104,7 +104,7 @@ const getServerToken = () => {
 
 module.exports = {
     login,
-    register,
+    signup: signup,
     logout,
     getServerToken,
 };

@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
+    <title>Sign Up</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <main>
-    <h1>Registration</h1>
+    <h1>Sign Up</h1>
     <div class="form-container">
-        <form id="register-form">
+        <form id="signup-form">
             <input
                     type="text"
                     name="email"
@@ -49,11 +49,11 @@
                     placeholder="Password"
             />
 
-            <p id="register-error-msg">Invalid input data</p>
+            <p id="signup-error-msg">Invalid input data</p>
         </form>
     </div>
     <div class="buttons">
-        <button id="register-button">Register</button>
+        <button id="signup-button">Sign Up</button>
         <button id="back-button">Back to login</button>
     </div>
 </main>
@@ -138,7 +138,7 @@
         margin-top: 2px;
     }
 
-    #register-error-msg {
+    #signup-error-msg {
         width: 200px;
         text-align: center;
         margin-top: 5px;
@@ -165,11 +165,11 @@
     const nameInput = document.getElementById('name-field');
     const passwordInput = document.getElementById('password-field');
 
-    const registerButton = document.getElementById('register-button');
+    const signupButton = document.getElementById('signup-button');
     const backButton = document.getElementById('back-button');
-    const registerErrorMsg = document.getElementById('register-error-msg');
+    const signupErrorMsg = document.getElementById('signup-error-msg');
 
-    registerButton.addEventListener('click', (e) => {
+    signupButton.addEventListener('click', (e) => {
         e.preventDefault();
 
         const email = emailInput.value;
@@ -181,7 +181,7 @@
 
         axios({
             method: 'post',
-            url: '/api/register',
+            url: '/api/signup',
             data: {
                 email,
                 givenname,
@@ -198,8 +198,8 @@
                 }
             })
             .catch((response) => {
-                registerErrorMsg.style.opacity = 1;
-                registerErrorMsg.innerHTML += response.request.status;
+                signupErrorMsg.style.opacity = 1;
+                signupErrorMsg.innerHTML += response.request.status;
             });
     });
 

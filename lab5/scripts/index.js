@@ -3,7 +3,7 @@ const {
     checkJwtMiddleware,
     unauthorizedMiddleware,
 } = require('./middleware');
-const { login, register, logout, getServerToken } = require('./service');
+const { login, signup, logout, getServerToken } = require('./service');
 const path = require('path');
 const request = require('request');
 require('dotenv-expand').expand(require('dotenv').config());
@@ -18,22 +18,22 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//public endpoints
+//public
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../pages/index.html'));
 });
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '../pages/register.html'));
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, '../pages/signup.html'));
 });
 app.post('/api/login', (req, res) => login(req, res));
-app.post('/api/register', (req, res) => register(req, res));
+app.post('/api/signup', (req, res) => signup(req, res));
 
-//middleware
+
 app.use(addTokenFromCookieToHeadersMiddleware);
 app.use(checkJwtMiddleware);
 app.use(unauthorizedMiddleware);
 
-//protected endpoints
+//protected
 app.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, '../pages/dashboard.html'));
 });
