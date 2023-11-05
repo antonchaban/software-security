@@ -57,11 +57,9 @@ app.use((req, res, next) => {
 
         const currentDate = new Date();
 
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
         console.log('expiresDate:', expiresDate);
         console.log('currentDate:', currentDate);
-        console.log(expiresDate < currentDate);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 
         if (expiresDate < currentDate) {
             console.log('USER_ACCESS_TOKEN', process.env.USER_ACCESS_TOKEN);
